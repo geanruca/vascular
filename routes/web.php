@@ -22,8 +22,12 @@ Auth::routes();
 //Route::get('/publications', 'PublicationsController@index')->name('publications');
 Route::middleware(['auth'])
 ->group(function(){
+    Route::get('/home', function () {
+        return redirect('patients');
+    });
+    Route::resource('patients', 'PatientsController');
 
-    Route::resource('publications', 'PublicationsController');
     Route::resource('comments', 'CommentsController');
 });
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 

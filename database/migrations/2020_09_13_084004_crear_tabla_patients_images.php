@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CrearTablaPatientsImages extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('patient_images', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('url');
+            $table->unsignedBigInteger('uploaded_by');
+            $table->foreign('uploaded_by')->references('id')->on('users');
+            $table->unsignedBigInteger('patient_id');
+            $table->foreign('patient_id')->references('id')->on('patients');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('patient_images');
+    }
+}

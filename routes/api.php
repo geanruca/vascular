@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:web')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::prefix('patients')->group(function(){
+    Route::get('get_patients', 'PatientsController@get_patients');
+    Route::post('store_patient', 'PatientsController@store_patient');
+    Route::post('up_priority', 'PatientsController@up_priority');
+    Route::post('down_priority', 'PatientsController@down_priority');
+    Route::post('dar_de_alta', 'PatientsController@dar_de_alta');
 });

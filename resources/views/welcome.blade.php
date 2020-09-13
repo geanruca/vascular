@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 45px;
             }
 
             .links > a {
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Proyecto Laravel
+                   Sistema de prevención Vascular del Dr. Joquin Vergara.
                 </div>
 
                 
