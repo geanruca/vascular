@@ -86,8 +86,11 @@
                 <div class="title m-b-md">
                    Sistema de prevención Vascular.
                 </div>
+                <div class="title-2 m-b-md">
+                    Dr. Joaquín Vergara
+                </div>
                 <div class="title-s m-b-md">
-                   Dr. Joaquín Vergara.
+                   Patrocinado por <a href="https://gerardoandresruizcastillo.com/">Gerard Lewis</a> 
                 </div>
 
                 
