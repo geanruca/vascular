@@ -2179,7 +2179,7 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
       formData2.append('phone_number', this.phone_number); // formData2.append('_method', 'PATCH');
 
       axios.post('api/patients/store_patient', formData2).then(function (response) {
-        mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Actualizado');
+        mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Paciente ingresado');
 
         _this.get_patients();
       })["catch"](function (error) {
@@ -38579,9 +38579,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Diagnostico")]),
+        _c("th", [_vm._v("Diagnóstico")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Telefono")]),
+        _c("th", [_vm._v("Teléfono")]),
         _vm._v(" "),
         _c("th", [_vm._v("Ingresado por")]),
         _vm._v(" "),

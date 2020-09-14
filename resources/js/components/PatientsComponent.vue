@@ -56,8 +56,8 @@
 
             <tr>
               <th>Nombre</th>
-              <th>Diagnostico</th>
-              <th>Telefono</th>
+              <th>Diagnóstico</th>
+              <th>Teléfono</th>
               <th>Ingresado por</th>
               <th>Fecha ingreso</th>
               <th>Actualizado por</th>
@@ -224,7 +224,7 @@ miniToastr.init();
             axios.post('api/patients/store_patient', formData2)
             .then(response=>{
                 
-                miniToastr.success(response.msg, 'Actualizado')
+                miniToastr.success(response.msg, 'Paciente ingresado')
                 this.get_patients()
             })
         .catch(error => {
