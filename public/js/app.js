@@ -2172,7 +2172,7 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
       var _this = this;
 
       var formData2 = new FormData();
-      formData2.append('image', this.img1);
+      formData2.append('image', this.image1);
       formData2.append('name', this.name);
       formData2.append('priority', this.priority);
       formData2.append('diagnostic', this.diagnostic);
@@ -2268,9 +2268,10 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
       }
     },
     onFileChange: function onFileChange(e) {
+      // console.log(e)
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      this.image1 = e.target.files[0];
+      this.image1 = files[0];
     },
     documentoModal: function documentoModal(item) {
       this.modalURL = item;
@@ -38294,8 +38295,8 @@ var render = function() {
         staticClass: "form-control",
         attrs: {
           type: "text",
-          placeholder: "Telefono",
-          "aria-label": "Telefono",
+          placeholder: "Diagnóstico",
+          "aria-label": "Diagnóstico",
           "aria-describedby": "basic-addon1"
         },
         domProps: { value: _vm.diagnostic },

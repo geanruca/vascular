@@ -21,7 +21,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text"  id="basic-addon1">Diagnóstico</span>
         </div>
-        <input v-model='diagnostic' type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+        <input v-model='diagnostic' type="text" class="form-control" placeholder="Diagnóstico" aria-label="Diagnóstico" aria-describedby="basic-addon1">
       </div>
 
       <div class="input-group mb-3">
@@ -214,8 +214,8 @@ miniToastr.init();
     },
     methods: {
       create_patient(){
-        let formData2 = new FormData();
-            formData2.append('image',this.img1);
+        var formData2 = new FormData();
+            formData2.append('image',this.image1);
             formData2.append('name',this.name);
             formData2.append('priority',this.priority);
             formData2.append('diagnostic',this.diagnostic);
@@ -238,7 +238,7 @@ miniToastr.init();
 
       },
       up_priority(id){
-        let formData2 = new FormData();
+        var formData2 = new FormData();
             formData2.append('id',id);
             axios.post('api/patients/up_priority', formData2)
             .then(response=>{
@@ -258,7 +258,7 @@ miniToastr.init();
 
       },
       down_priority(id){
-        let formData2 = new FormData();
+        var formData2 = new FormData();
             formData2.append('id',id);
             axios.post('api/patients/down_priority', formData2)
             .then(response=>{
@@ -273,7 +273,7 @@ miniToastr.init();
 
       },
       dar_de_alta(id){
-        let formData2 = new FormData();
+        var formData2 = new FormData();
             formData2.append('id',id);
             axios.post('api/patients/dar_de_alta', formData2)
             .then(response=>{
@@ -320,10 +320,11 @@ miniToastr.init();
           }
       },
       onFileChange(e){
+        // console.log(e)
           var files = e.target.files || e.dataTransfer.files;
           if (!files.length)
             return;
-            this.image1 = e.target.files[0];
+          this.image1 = files[0];
       },
       documentoModal(item){
         this.modalURL = item;

@@ -27,7 +27,7 @@ class PatientsController extends Controller
     }
     public function store_patient(Request $r){
         // dd(auth()->user());
-        // dd($r->images[1]);
+        // dd($r->all());
         $last_patient = Patient::orderBy('priority','desc')->first();
 
         $p               = new Patient();
@@ -46,13 +46,14 @@ class PatientsController extends Controller
 
         $p->save();
         // dd($p->id);
-
-        $url                 = Storage::putFile('public', new File($r->image));
-        $imagen              = new PatientImage();
-        $imagen->url         = $url;
-        $imagen->patient_id  = $p->id;
-        $imagen->uploaded_by = $p->updated_by;
-        $imagen->save();
+        if($r->image){
+            $url                 = Storage::putFile('public', new File($r->image));
+            $imagen              = new PatientImage();
+            $imagen->url         = $url;
+            $imagen->patient_id  = $p->id;
+            $imagen->uploaded_by = $p->updated_by;
+            $imagen->save();
+        }
         // foreach ($r->images as $key => $archivo) {
         //     $url                 = Storage::putFile('public', new File($archivo));
         //     $imagen              = new PatientImage();
@@ -75,8 +76,8 @@ class PatientsController extends Controller
             return response()->json('ya esta en prioridad 1');
         }
         $p->priority = $p->priority -1;
-        
-        $pacientes = Patient::where('priority', '<=', $p->priority)->get();
+        $p->updated_by   = Auth::user()->id;
+        // $pacientes = Patient::where('priority', '<=', $p->priority)->get();
         // foreach($pacientes as $paciente){
         //     if($p->priority > 1){
         //         $paciente->priority = $paciente->priority + 1;
@@ -96,6 +97,7 @@ class PatientsController extends Controller
         if($p->priority == $last_patient->priority){
             return response()->json('ya esta al final de la prioridad');
         }
+        $p->updated_by   = Auth::user()->id;
         $p->priority = $p->priority + 1;
         $pacientes = Patient::where('priority', '<=', $p->priority)->get();
         // foreach($pacientes as $paciente){
@@ -110,6 +112,8 @@ class PatientsController extends Controller
     public function dar_de_alta(Request $r){
 
         $p = Patient::find($r->id);
+        $p->updated_by   = Auth::user()->id;
+        $p->save();
         if(!$p){
             return 'error';
         }
