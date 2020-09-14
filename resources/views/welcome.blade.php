@@ -47,6 +47,9 @@
             .title {
                 font-size: 45px;
             }
+            .title {
+                font-size: 25px;
+            }
 
             .links > a {
                 color: #636b6f;
@@ -81,7 +84,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   Sistema de prevención Vascular del Dr. Joaquín Vergara.
+                   Sistema de prevención Vascular.
+                </div>
+                <div class="title-s m-b-md">
+                   Dr. Joaquín Vergara.
                 </div>
 
                 
