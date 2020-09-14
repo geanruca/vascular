@@ -2180,6 +2180,8 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
 
       axios.post('api/patients/store_patient', formData2).then(function (response) {
         mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Actualizado');
+
+        _this.get_patients();
       })["catch"](function (error) {
         //console.log(error.response.data.message)
         //var self = this

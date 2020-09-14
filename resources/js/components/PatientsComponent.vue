@@ -225,6 +225,7 @@ miniToastr.init();
             .then(response=>{
                 
                 miniToastr.success(response.msg, 'Actualizado')
+                this.get_patients()
             })
         .catch(error => {
           //console.log(error.response.data.message)
