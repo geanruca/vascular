@@ -28,6 +28,7 @@ class PatientsController extends Controller
     public function store_patient(Request $r){
         // dd(auth()->user());
         // dd($r->all());
+        Log::info('Paciente ingresado: '.$r->all());
         $last_patient = Patient::orderBy('priority','desc')->first();
 
         $p               = new Patient();

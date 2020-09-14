@@ -2179,6 +2179,11 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
       formData2.append('phone_number', this.phone_number); // formData2.append('_method', 'PATCH');
 
       axios.post('api/patients/store_patient', formData2).then(function (response) {
+        _this.image1 = null;
+        _this.name = null;
+        _this.priority = null;
+        _this.diagnostic = null;
+        _this.phone_number = null;
         mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Paciente ingresado');
 
         _this.get_patients();

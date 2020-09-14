@@ -223,7 +223,11 @@ miniToastr.init();
             // formData2.append('_method', 'PATCH');
             axios.post('api/patients/store_patient', formData2)
             .then(response=>{
-                
+                this.image1       = null
+                this.name         = null
+                this.priority     = null
+                this.diagnostic   = null
+                this.phone_number = null
                 miniToastr.success(response.msg, 'Paciente ingresado')
                 this.get_patients()
             })
