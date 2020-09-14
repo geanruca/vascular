@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/publications') }}">Publicaciones</a>
+                        <a href="{{ url('/pationts') }}">Ver Pacientes</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   Sistema de prevención Vascular del Dr. Joquin Vergara.
+                   Sistema de prevención Vascular del Dr. Joaquín Vergara.
                 </div>
 
                 
